@@ -16,8 +16,9 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: "Bannerman | Relationship Counselling",
-  description: "Post-marriage, marriage and relationship counselling platform. Join our newsletter or get expert advice.",
+  title: "Bannerman | AI Newsletter Studio",
+  description:
+    "Bannerman is a full-service agency that designs, launches, grows, and monetizes newsletters for AI startups, operators, and brands.",
 };
 
 export default function RootLayout({

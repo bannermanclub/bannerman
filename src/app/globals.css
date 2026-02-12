@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0f766e; /* Teal 700 */
+  --color-primary: #f97316; /* Orange 500 */
   --color-primary-foreground: #ffffff;
   
-  --color-secondary: #fafaf9; /* Stone 50 */
+  --color-secondary: #fafaf9; /* Light background */
   --color-secondary-foreground: #1c1917;
 
-  --color-accent: #f43f5e; /* Rose 500 */
+  --color-accent: #eab308; /* Yellow 500 */
   --color-accent-foreground: #ffffff;
 
   --color-neutral: #334155; /* Slate 700 */
@@ -27,15 +27,23 @@
   }
   
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-teal-800 focus:ring-teal-500;
+    @apply bg-primary text-primary-foreground hover:bg-orange-600 focus:ring-orange-500;
   }
   
   .btn-secondary {
-    @apply bg-white text-neutral-900 border border-neutral-200 hover:bg-neutral-50 focus:ring-neutral-500;
+    @apply bg-white text-neutral-900 border border-neutral-200 hover:bg-neutral-100 focus:ring-neutral-500;
   }
 
   .btn-accent {
-    @apply bg-accent text-accent-foreground hover:bg-rose-600 focus:ring-rose-500;
+    @apply bg-accent text-accent-foreground hover:bg-yellow-500 focus:ring-yellow-500;
+  }
+
+  .badge-soft {
+    @apply inline-flex items-center rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white;
+  }
+
+  .pill-outline {
+    @apply inline-flex items-center rounded-full border border-neutral-800/60 bg-neutral-900/60 px-3 py-1 text-xs font-medium text-neutral-300;
   }
 }
 
