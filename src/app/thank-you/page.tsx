@@ -11,7 +11,7 @@ export default function ThankYouPage() {
             Thank you — we&apos;ll review your details shortly.
           </h1>
           <p className="text-neutral-600 text-sm md:text-base">
-            We&apos;re excited you&apos;re considering Bannerman as your newsletter
+            We&apos;re excited you&apos;re considering Flagbearer as your newsletter
             growth partner. Within 24–48 hours, we&apos;ll review your inputs and
             share a tailored point of view on how we can help.
           </p>
@@ -43,8 +43,8 @@ export default function ThankYouPage() {
             <div className="relative pb-[140%] md:pb-[120%] h-0 overflow-hidden rounded-xl">
               {/* Replace the src below with your actual Calendly scheduling URL */}
               <iframe
-                src="https://calendly.com/clubbannerman/30min"
-                title="Schedule a call with Bannerman"
+                src="https://calendly.com/clubflagbearer/30min"
+                title="Schedule a call with Flagbearer"
                 className="absolute inset-0 h-full w-full border-0"
                 loading="lazy"
               />

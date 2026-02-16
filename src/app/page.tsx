@@ -4,9 +4,14 @@ import { LeadFormModal } from "@/components/ui/LeadFormModal";
 import {
   ArrowRight,
   BarChart3,
+  BrainCircuit,
+  Layers3,
   LayoutTemplate,
   MailOpen,
+  MessageSquareQuote,
+  PiggyBank,
   Rocket,
+  TimerReset,
 } from "lucide-react";
 
 export default function Home() {
@@ -59,38 +64,125 @@ export default function Home() {
             <div className="relative rounded-2xl border border-orange-200 bg-white/80 p-6 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
                 <span className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-                  Sample newsletter performance
+                  This Week in AI Performance
                 </span>
                 <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
-                  +38% MoM
+                  +10% MoM
                 </span>
               </div>
               <div className="space-y-4 text-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-neutral-500">Subscribers</span>
-                  <span className="font-medium text-neutral-900">18,420</span>
+                  <span className="font-medium text-neutral-900">30,000</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-neutral-500">Followers</span>
+                  <span className="font-medium text-neutral-900">45,000</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-neutral-500">Open rate</span>
-                  <span className="font-medium text-neutral-900">47.3%</span>
+                  <span className="font-medium text-neutral-900">35%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-neutral-500">Revenue / subscriber</span>
-                  <span className="font-medium text-neutral-900">$3.80</span>
+                  <span className="text-neutral-500">Click rate</span>
+                  <span className="font-medium text-neutral-900">3.6%</span>
                 </div>
               </div>
-              <div className="mt-6 h-24 rounded-xl bg-gradient-to-tr from-orange-100 via-amber-100 to-white" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Problem & Value */}
-      <section className="container-custom" id="how-it-works">
+      {/* 2. Services Overview */}
+      <section className="container-custom">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-orange-600 mb-3">
+              Why a newsletter is needed
+            </p>
+            <h2 className="text-3xl font-bold text-neutral-900 mb-3">
+              One differentiated channel beats scattered content.
+            </h2>
+            <p className="text-neutral-600 max-w-2xl">
+              In an AI-saturated market, a strategic newsletter gives you a clear
+              point of view, ongoing trust with buyers, and reusable content
+              infrastructure that compounds over time.
+            </p>
+          </div>
+          <Link
+            href="/why-do-brands-need-a-newsletter"
+            className="inline-flex items-center text-sm font-medium text-neutral-800 hover:text-orange-700"
+          >
+            Read the full breakdown
+            <ArrowRight className="ml-1 h-4 w-4" />
+          </Link>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-6 auto-rows-[minmax(130px,auto)]">
+          <article className="md:col-span-4 rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 via-amber-50 to-white p-6">
+            <BrainCircuit className="h-6 w-6 text-orange-600 mb-4" />
+            <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+              AI can generate content, not conviction.
+            </h3>
+            <p className="text-sm text-neutral-700 max-w-2xl">
+              When everyone is using the same tools, sameness becomes the default.
+              A newsletter creates a consistent place for your real point of view
+              to stand out.
+            </p>
+          </article>
+
+          <article className="md:col-span-2 rounded-2xl border border-neutral-200 bg-white p-6">
+            <MessageSquareQuote className="h-6 w-6 text-orange-600 mb-4" />
+            <h3 className="text-base font-semibold text-neutral-900 mb-2">
+              Trust drives B2B decisions
+            </h3>
+            <p className="text-sm text-neutral-600">
+              Buyers choose voices that explain their market clearly, not brands
+              that publish the most.
+            </p>
+          </article>
+
+          <article className="md:col-span-2 rounded-2xl border border-neutral-200 bg-white p-6">
+            <TimerReset className="h-6 w-6 text-orange-600 mb-4" />
+            <h3 className="text-base font-semibold text-neutral-900 mb-2">
+              Bridge long sales cycles
+            </h3>
+            <p className="text-sm text-neutral-600">
+              Most prospects are &ldquo;not now.&rdquo; Newsletters keep you relevant
+              until they&apos;re ready to act.
+            </p>
+          </article>
+
+          <article className="md:col-span-2 rounded-2xl border border-neutral-200 bg-white p-6">
+            <Layers3 className="h-6 w-6 text-orange-600 mb-4" />
+            <h3 className="text-base font-semibold text-neutral-900 mb-2">
+              Build content infrastructure
+            </h3>
+            <p className="text-sm text-neutral-600">
+              One strong edition can fuel social posts, sales talking points, and
+              webinar angles.
+            </p>
+          </article>
+
+          <article className="md:col-span-2 rounded-2xl border border-neutral-200 bg-white p-6">
+            <PiggyBank className="h-6 w-6 text-orange-600 mb-4" />
+            <h3 className="text-base font-semibold text-neutral-900 mb-2">
+              More leverage, less overhead
+            </h3>
+            <p className="text-sm text-neutral-600">
+              You get senior strategy and reliable execution without building a
+              full internal editorial team.
+            </p>
+          </article>
+        </div>
+      </section>
+
+            {/* 2. Problem & Value */}
+            <section className="container-custom" id="how-it-works">
         <div className="grid gap-12 lg:grid-cols-2 items-start">
           <div>
             <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-              Most AI newsletters stall after launch.
+              But, most AI newsletters stall after launch.
             </h2>
             <p className="text-lg text-neutral-600 mb-4">
               Founders and operators know they need to own an email audience, but
@@ -110,7 +202,7 @@ export default function Home() {
               We don&apos;t just write. We operate the channel.
             </h3>
             <p className="text-neutral-600 mb-4">
-              Bannerman plugs in as your newsletter growth partner — from strategy
+              Flagbearer plugs in as your newsletter growth partner — from strategy
               and infrastructure to growth experiments and revenue operations.
             </p>
             <div className="grid gap-4 sm:grid-cols-2 text-sm">
@@ -151,7 +243,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Services Overview */}
+      {/* 4. Services Overview */}
       <section className="container-custom" id="services">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
@@ -164,7 +256,7 @@ export default function Home() {
             </p>
           </div>
           <p className="text-sm text-neutral-500">
-            Platforms we work with: Beehiiv, Substack, ConvertKit, custom stacks.
+            Platforms we work with: Substack (generally), Beehiiv, Kit, custom stacks.
           </p>
         </div>
 
@@ -219,7 +311,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Process / Journey */}
+      {/* 5. Process / Journey */}
       <section className="container-custom">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
@@ -277,7 +369,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Packages & CTA */}
+      {/* 6. Packages & CTA */}
       <section className="container-custom">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
@@ -304,7 +396,7 @@ export default function Home() {
               scratch.
             </p>
             <p className="text-sm font-medium text-neutral-900 mb-4">
-              $3,000–$7,000 (3-month lock-in)
+              Clear launch outcomes for what you pay.
             </p>
             <ul className="text-xs text-neutral-600 space-y-1 mb-4 flex-1">
               <li>• Strategy Blueprint</li>
@@ -325,7 +417,7 @@ export default function Home() {
               6-month partnership to scale audience and wire in monetization.
             </p>
             <p className="text-sm font-medium text-neutral-900 mb-4">
-              $5,000–$8,000 / month (6-month lock-in)
+              Scaled growth systems for what you pay.
             </p>
             <ul className="text-xs text-neutral-600 space-y-1 mb-4 flex-1">
               <li>• Weekly newsletter</li>
@@ -346,7 +438,7 @@ export default function Home() {
               12-month, deep integration as your knowledge and media partner.
             </p>
             <p className="text-sm font-medium text-neutral-900 mb-4">
-              $2,000–$4,000 / month + revenue share
+              Deep operational support for what you pay.
             </p>
             <ul className="text-xs text-neutral-600 space-y-1 mb-4 flex-1">
               <li>• Weekly newsletters &amp; video</li>

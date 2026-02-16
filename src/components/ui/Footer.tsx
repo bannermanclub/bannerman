@@ -7,11 +7,15 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="col-span-1 md:col-span-2">
                         <span className="text-xl font-serif font-bold text-neutral-900 block mb-4">
-                            Bannerman
+                            Flagbearer
                         </span>
                         <p className="text-neutral-600 max-w-sm">
                             Full-service newsletter studio for AI startups, operators, and brands.
                             We design, launch, grow, and monetize high-performing newsletter assets.
+                        </p>
+                        <br/>
+                        <p className="text-neutral-600 max-w-sm">
+                            A sister company of <a href="https://thisweekinaiclub.substack.com"><strong>This Week in AI</strong></a>
                         </p>
                     </div>
 
@@ -29,8 +33,8 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/get-started" className="text-neutral-600 hover:text-primary">
-                                    Work with us
+                                <Link href="/why-do-brands-need-a-newsletter" className="text-neutral-600 hover:text-primary">
+                                    Why newsletter?!
                                 </Link>
                             </li>
                         </ul>
@@ -41,10 +45,10 @@ export function Footer() {
                         <ul className="space-y-2">
                             <li>
                                 <a
-                                    href="mailto:hello@bannerman.club"
+                                    href="mailto:hello@flagbearer.club"
                                     className="text-neutral-600 hover:text-primary"
                                 >
-                                    hello@bannerman.club
+                                    hello@flagbearer.club
                                 </a>
                             </li>
                             <li className="text-neutral-500 text-sm">
@@ -55,7 +59,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-neutral-200 mt-12 pt-8 text-center text-neutral-500 text-sm">
-                    © {new Date().getFullYear()} Bannerman. All rights reserved.
+                    © {new Date().getFullYear()} Flagbearer. All rights reserved.
                 </div>
             </div>
         </footer>

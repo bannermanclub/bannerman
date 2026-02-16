@@ -12,16 +12,19 @@ export function Navbar() {
                         <Sparkles className="h-4 w-4 text-neutral-900" />
                     </div>
                     <span className="text-xl font-serif font-bold text-neutral-900">
-                        Bannerman
+                        Flagbearer
                     </span>
                 </Link>
 
                 <div className="hidden md:flex items-center gap-8">
-                    <Link href="/" className="text-neutral-600 hover:text-primary font-medium">
+                    <Link href="/" className="sr-only">
                         Home
                     </Link>
-                    <Link href="/#services" className="text-neutral-600 hover:text-primary font-medium">
+                    <Link href="/#services" className="sr-only">
                         Services
+                    </Link>
+                    <Link href="/why-do-brands-need-a-newsletter" className="text-neutral-600 hover:text-primary font-medium">
+                        Newsletter? Why!
                     </Link>
                     <Link href="/about" className="text-neutral-600 hover:text-primary font-medium">
                         About
@@ -34,7 +37,7 @@ export function Navbar() {
                 </div>
 
                 {/* Mobile Menu Placeholder - for simplicity in this iteration */}
-                <div className="md:hidden">
+                <div className="md:hidden flex items-center gap-2">
                     <LeadFormModal>
                         <Button variant="primary" size="sm">
                             Work with us

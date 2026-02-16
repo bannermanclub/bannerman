@@ -3,6 +3,7 @@ import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
+import { siteConfig } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,9 +17,48 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: "Bannerman | AI Newsletter Studio",
-  description:
-    "Bannerman is a full-service agency that designs, launches, grows, and monetizes newsletters for AI startups, operators, and brands.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} | AI Newsletter Studio`,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
+  keywords: [
+    "newsletter agency",
+    "AI startup newsletter",
+    "newsletter strategy",
+    "B2B newsletter growth",
+    "newsletter monetization",
+    "email audience growth",
+  ],
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    title: `${siteConfig.name} | AI Newsletter Studio`,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Flagbearer link preview image",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | AI Newsletter Studio`,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -26,11 +66,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    email: siteConfig.email,
+    sameAs: [siteConfig.url],
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+  };
+
   return (
     <html lang="en">
       <body
         className={`${inter.variable} ${merriweather.variable} antialiased bg-secondary text-neutral-800 flex flex-col min-h-screen`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Navbar />
         <main className="flex-grow">
           {children}

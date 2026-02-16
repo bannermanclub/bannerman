@@ -4,12 +4,12 @@ export default function AboutPage() {
   return (
     <div className="container-custom py-16 md:py-24 space-y-16">
       <section className="max-w-3xl">
-        <p className="pill-outline mb-4">About Bannerman</p>
+        <p className="pill-outline mb-4">About Flagbearer</p>
         <h1 className="text-4xl font-bold text-neutral-900 mb-6">
           We build newsletter businesses, not email blasts.
         </h1>
         <p className="text-lg text-neutral-600 mb-4">
-          Bannerman is a full-stack newsletter studio for AI startups, operators,
+          Flagbearer is a full-stack newsletter studio for AI startups, operators,
           and brands. We handle strategy, production, growth, and monetization so
           your team can stay focused on building product and serving customers.
         </p>
@@ -123,10 +123,10 @@ export default function AboutPage() {
           <div className="space-y-2 text-sm text-neutral-700">
             <p className="font-medium">Email</p>
             <a
-              href="mailto:hello@bannerman.club"
+              href="mailto:hello@flagbearer.club"
               className="text-primary hover:text-orange-600 font-mono text-sm"
             >
-              hello@bannerman.club
+              hello@flagbearer.club
             </a>
           </div>
         </div>

@@ -1,0 +1,35 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="60" x2="1080" y2="610" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FDE68A"/>
+      <stop offset="0.5" stop-color="#FEF3C7"/>
+      <stop offset="1" stop-color="#FED7AA"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="220" y1="120" x2="980" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F59E0B" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#EA580C" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="blur" x="0" y="0" width="1200" height="630" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="56"/>
+    </filter>
+    <style>
+      .headline {
+        font: 700 66px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        fill: #111827;
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g filter="url(#blur)" opacity="0.9">
+    <circle cx="170" cy="130" r="140" fill="#F59E0B"/>
+    <circle cx="1060" cy="500" r="180" fill="#FB923C"/>
+  </g>
+
+  <rect x="70" y="56" width="1060" height="518" rx="34" fill="url(#glow)" opacity="0.35"/>
+
+  <text x="110" y="250" class="headline">We build and scale high-signal</text>
+  <text x="110" y="330" class="headline">newsletters for AI startups</text>
+  <text x="110" y="410" class="headline">and operators.</text>
+</svg>
