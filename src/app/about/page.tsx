@@ -1,4 +1,28 @@
+import type { Metadata } from "next";
 import { CheckCircle2, LineChart, Target, Users } from "lucide-react";
+import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Flagbearer is a full-stack newsletter studio for AI startups and B2B brands. We handle strategy, production, growth, and monetization so your team can focus on product and customers.",
+  alternates: { canonical: siteConfig.links.about },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}${siteConfig.links.about}`,
+    title: "About | Flagbearer",
+    description:
+      "Flagbearer is a full-stack newsletter studio for AI startups and B2B brands. We handle strategy, production, growth, and monetization.",
+    siteName: siteConfig.name,
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Flagbearer" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Flagbearer",
+    description:
+      "Flagbearer is a full-stack newsletter studio for AI startups and B2B brands. Strategy, production, growth, and monetization.",
+  },
+};
 
 export default function AboutPage() {
   return (

@@ -4,6 +4,8 @@ import { siteConfig } from "@/lib/site";
 const routes = [
   "",
   "/about",
+  "/contact",
+  "/privacy",
   "/thank-you",
   "/why-do-brands-need-a-newsletter",
 ] as const;
@@ -15,6 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteConfig.url}${route}`,
     lastModified: now,
     changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : route === "/why-do-brands-need-a-newsletter" ? 0.9 : 0.7,
+    priority:
+      route === ""
+        ? 1
+        : route === "/why-do-brands-need-a-newsletter"
+          ? 0.9
+          : route === "/about" || route === "/contact"
+            ? 0.8
+            : 0.6,
   }));
 }

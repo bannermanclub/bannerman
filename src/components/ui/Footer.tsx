@@ -37,6 +37,16 @@ export function Footer() {
                                     Why newsletter?!
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/contact" className="text-neutral-600 hover:text-primary">
+                                    Contact
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/privacy" className="text-neutral-600 hover:text-primary">
+                                    Privacy
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 

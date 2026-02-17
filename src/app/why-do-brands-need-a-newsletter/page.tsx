@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 
+const articleTitle = "Why Your Brand Needs a Newsletter";
+const articleDescription =
+  "Why brands need a differentiated, insight-led newsletter to stand out in an AI-saturated content market. A case for clarity and conviction over volume.";
+
 export const metadata: Metadata = {
-  title: "Newsletter? Why!",
-  description:
-    "Why brands need a differentiated, insight-led newsletter to stand out in an AI-saturated content market.",
+  title: articleTitle,
+  description: articleDescription,
   alternates: {
     canonical: siteConfig.links.whyNewsletter,
   },
   openGraph: {
     type: "article",
     url: `${siteConfig.url}${siteConfig.links.whyNewsletter}`,
-    title: "Newsletter? Why!",
-    description:
-      "Why brands need a differentiated, insight-led newsletter to stand out in an AI-saturated content market.",
+    title: articleTitle,
+    description: articleDescription,
     images: [
       {
         url: siteConfig.ogImage,
@@ -25,9 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Newsletter? Why!",
-    description:
-      "Why brands need a differentiated, insight-led newsletter to stand out in an AI-saturated content market.",
+    title: articleTitle,
+    description: articleDescription,
     images: [siteConfig.ogImage],
   },
 };
@@ -49,6 +50,12 @@ export default function WhyDoBrandsNeedANewsletterPage() {
       "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}${siteConfig.ogImage}`,
+        width: 1200,
+        height: 630,
+      },
     },
     mainEntityOfPage: `${siteConfig.url}${siteConfig.links.whyNewsletter}`,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
@@ -104,7 +111,7 @@ export default function WhyDoBrandsNeedANewsletterPage() {
             <p>And that&apos;s the gap buyers can feel, even when they can&apos;t name it.</p>
           </div>
 
-          <section className="space-y-4 border-t border-neutral-200 pt-8">
+          <section className="space-y-4 pt-8">
             <h2 className="pt-1 text-2xl text-neutral-900 sm:text-3xl">The Real Problem</h2>
             <p>You don&apos;t have a content problem.</p>
             <p>You have a differentiation problem.</p>
@@ -128,7 +135,7 @@ export default function WhyDoBrandsNeedANewsletterPage() {
             <p>Time most teams simply don&apos;t have.</p>
           </section>
 
-          <section className="space-y-4 border-t border-neutral-200 pt-8">
+          <section className="space-y-4 pt-8">
             <h2 className="pt-1 text-2xl text-neutral-900 sm:text-3xl">
               The Solution: A Strategic Newsletter Engine
             </h2>
@@ -154,7 +161,7 @@ export default function WhyDoBrandsNeedANewsletterPage() {
             </div>
           </section>
 
-          <section className="space-y-4 border-t border-neutral-200 pt-8">
+          <section className="space-y-4 pt-8">
             <h2 className="pt-1 text-2xl text-neutral-900 sm:text-3xl">
               And Here&apos;s Where It Gets Powerful
             </h2>
@@ -172,7 +179,7 @@ export default function WhyDoBrandsNeedANewsletterPage() {
             <p>You operate from one reliable source of strategic truth.</p>
           </section>
 
-          <section className="space-y-4 border-t border-neutral-200 pt-8">
+          <section className="space-y-4 pt-8">
             <h2 className="pt-1 text-2xl text-neutral-900 sm:text-3xl">Why This Is Cost-Effective</h2>
             <p>Building this internally usually means:</p>
             <ul className="list-disc space-y-2 pl-6 marker:text-neutral-400">
@@ -193,7 +200,7 @@ export default function WhyDoBrandsNeedANewsletterPage() {
             <p>You need content that builds familiarity before the sales call ever starts.</p>
           </section>
 
-          <section className="space-y-4 border-t border-neutral-200 pt-8">
+          <section className="space-y-4 pt-8">
             <h2 className="pt-1 text-2xl text-neutral-900 sm:text-3xl">The Key Takeaway</h2>
             <p>In a world flooded with AI-generated noise, clarity and conviction win.</p>
             <p>The companies that grow won&apos;t be the ones publishing the most.</p>
