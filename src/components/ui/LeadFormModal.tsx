@@ -238,8 +238,8 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
                 Tell us about your newsletter
               </h2>
               <p id="lead-form-desc" className="text-xs md:text-sm text-neutral-600">
-                Share a few details and we&apos;ll come back with a tailored
-                growth and monetization plan for your AI newsletter.
+                You&apos;ll get a tailored
+                growth plan for your newsletter based on these detials.
               </p>
             </div>
             <button
@@ -276,7 +276,7 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
                   name="name"
                   type="text"
                   autoComplete="name"
-                  placeholder="Jane Doe"
+                  placeholder="Elon Musk"
                   value={form.name}
                   onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
                   error={errors.name}
@@ -286,7 +286,7 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  placeholder="you@company.com"
+                  placeholder="elon@spacex.com"
                   value={form.email}
                   onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
                   error={errors.email}
@@ -296,7 +296,7 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
                   name="company"
                   type="text"
                   autoComplete="organization"
-                  placeholder="Acme AI"
+                  placeholder="SpaceX"
                   value={form.company}
                   onChange={(e) => setForm((prev) => ({ ...prev, company: e.target.value }))}
                   error={errors.company}
@@ -306,7 +306,7 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
                   name="website"
                   type="text"
                   autoComplete="url"
-                  placeholder="https://yourcompany.com"
+                  placeholder="https://spacex.com"
                   value={form.website}
                   onChange={(e) => setForm((prev) => ({ ...prev, website: e.target.value }))}
                   error={errors.website}
@@ -405,24 +405,6 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
               <p className="text-xs text-neutral-500 text-center mt-3">
                 We&apos;ll review your information and reach out with next steps. No spam, ever.
               </p>
-            </div>
-
-            {/* Trust signals */}
-            <div className="flex-shrink-0 bg-neutral-50 px-6 py-4 border-t border-neutral-200">
-              <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-neutral-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span>Strategy-first, no fluff</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span>Operators with media experience</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span>Limited active partners at any time</span>
-                </div>
-              </div>
             </div>
           </form>
 
