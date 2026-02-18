@@ -1,21 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
     "Privacy policy for Flagbearer. How we collect, use, and protect your information when you use our website and get in touch with us.",
-  alternates: { canonical: siteConfig.links.privacy },
-  openGraph: {
-    type: "website",
-    url: `${siteConfig.url}${siteConfig.links.privacy}`,
-    title: "Privacy Policy | Flagbearer",
-    description: "How we collect, use, and protect your information.",
-    siteName: siteConfig.name,
-  },
-  robots: { index: true, follow: true },
-};
+  path: siteConfig.links.privacy,
+  ogTitle: "Privacy Policy | Flagbearer",
+});
 
 export default function PrivacyPage() {
   return (

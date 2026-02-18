@@ -1,28 +1,14 @@
-import type { Metadata } from "next";
 import { CheckCircle2, LineChart, Target, Users } from "lucide-react";
 import { siteConfig } from "@/lib/site";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "About",
   description:
     "Flagbearer is a full-stack newsletter studio for AI startups and B2B brands. We handle strategy, production, growth, and monetization so your team can focus on product and customers.",
-  alternates: { canonical: siteConfig.links.about },
-  openGraph: {
-    type: "website",
-    url: `${siteConfig.url}${siteConfig.links.about}`,
-    title: "About | Flagbearer",
-    description:
-      "Flagbearer is a full-stack newsletter studio for AI startups and B2B brands. We handle strategy, production, growth, and monetization.",
-    siteName: siteConfig.name,
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Flagbearer" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About | Flagbearer",
-    description:
-      "Flagbearer is a full-stack newsletter studio for AI startups and B2B brands. Strategy, production, growth, and monetization.",
-  },
-};
+  path: siteConfig.links.about,
+  ogTitle: "About | Flagbearer",
+});
 
 export default function AboutPage() {
   return (
@@ -147,10 +133,10 @@ export default function AboutPage() {
           <div className="space-y-2 text-sm text-neutral-700">
             <p className="font-medium">Email</p>
             <a
-              href="mailto:hello@flagbearer.club"
+              href={`mailto:${siteConfig.email}`}
               className="text-primary hover:text-orange-600 font-mono text-sm"
             >
-              hello@flagbearer.club
+              {siteConfig.email}
             </a>
           </div>
         </div>

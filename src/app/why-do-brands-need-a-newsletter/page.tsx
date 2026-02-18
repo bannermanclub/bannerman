@@ -1,37 +1,16 @@
-import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
+import { createPageMetadata } from "@/lib/metadata";
 
 const articleTitle = "Why Your Brand Needs a Newsletter";
 const articleDescription =
   "Why brands need a differentiated, insight-led newsletter to stand out in an AI-saturated content market. A case for clarity and conviction over volume.";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: articleTitle,
   description: articleDescription,
-  alternates: {
-    canonical: siteConfig.links.whyNewsletter,
-  },
-  openGraph: {
-    type: "article",
-    url: `${siteConfig.url}${siteConfig.links.whyNewsletter}`,
-    title: articleTitle,
-    description: articleDescription,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: "We build, grow and nurture newsletters for AI startups.",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: articleTitle,
-    description: articleDescription,
-    images: [siteConfig.ogImage],
-  },
-};
+  path: siteConfig.links.whyNewsletter,
+  type: "article",
+});
 
 export default function WhyDoBrandsNeedANewsletterPage() {
   const articleJsonLd = {

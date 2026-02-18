@@ -3,7 +3,7 @@ export const siteConfig = {
   url: "https://www.flagbearer.club",
   description:
     "We build, grow, and nurture newsletters for AI startups, operators, and B2B brands. Strategy, production, growth, and monetization under one roof.",
-  ogImage: "/og-preview.svg",
+  ogImage: "/og-preview.png",
   email: "hello@flagbearer.club",
   links: {
     about: "/about",

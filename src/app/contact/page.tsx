@@ -1,21 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Contact",
   description:
     "Get in touch with Flagbearer. We typically respond within 1–2 business days. Share your company and newsletter goals for a clear recommendation.",
-  alternates: { canonical: siteConfig.links.contact },
-  openGraph: {
-    type: "website",
-    url: `${siteConfig.url}${siteConfig.links.contact}`,
-    title: "Contact | Flagbearer",
-    description: "Get in touch with Flagbearer. We respond within 1–2 business days.",
-    siteName: siteConfig.name,
-  },
-  robots: { index: true, follow: true },
-};
+  path: siteConfig.links.contact,
+  ogTitle: "Contact | Flagbearer",
+});
 
 export default function ContactPage() {
   return (
@@ -29,14 +22,14 @@ export default function ContactPage() {
         <div className="space-y-6">
           <p>
             <a
-              href="mailto:hello@flagbearer.club"
+              href={`mailto:${siteConfig.email}`}
               className="text-primary font-semibold hover:text-orange-600 text-lg"
             >
-              hello@flagbearer.club
+              {siteConfig.email}
             </a>
           </p>
           <p className="text-neutral-500 text-sm">
-            Typically responds within 1–2 business days.
+            We read all emails and typically respond within 1–2 business hours.
           </p>
           <p className="pt-4">
             <Link

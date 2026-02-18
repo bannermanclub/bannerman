@@ -46,14 +46,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | AI Newsletter Studio`,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: "Flagbearer link preview image",
-      },
-    ],
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Flagbearer | AI Newsletter Studio" }],
   },
   twitter: {
     card: "summary_large_image",
