@@ -1,17 +1,30 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "./Button";
-import { Sparkles } from "lucide-react";
 import { LeadFormModal } from "./LeadFormModal";
+
+const FLAGBEARER_COLOR = "#BC4F12";
 
 export function Navbar() {
     return (
         <nav className="bg-white/80 backdrop-blur-md border-b border-neutral-200 sticky top-0 z-50">
-            <div className="container-custom flex items-center justify-between h-16">
-                <Link href="/" className="flex items-center gap-2">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-amber-400 to-orange-500">
-                        <Sparkles className="h-4 w-4 text-neutral-900" />
-                    </div>
-                    <span className="text-xl font-serif font-bold text-neutral-900">
+            <div className="container-custom flex items-center justify-between h-20">
+                <Link href="/" className="flex items-center gap-3">
+                    <Image
+                        src="/logo-white.svg"
+                        alt=""
+                        width={80}
+                        height={80}
+                        className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0"
+                    />
+                    <span
+                        className="text-2xl sm:text-3xl font-[family-name:var(--font-instrument-serif)] font-normal tracking-tight"
+                        style={{
+                            color: FLAGBEARER_COLOR,
+                            WebkitTextStroke: "1px currentColor",
+                            paintOrder: "stroke fill",
+                        }}
+                    >
                         Flagbearer
                     </span>
                 </Link>

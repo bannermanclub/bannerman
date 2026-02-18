@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Merriweather } from "next/font/google";
+import { Inter, Merriweather, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
@@ -13,6 +13,12 @@ const inter = Inter({
 const merriweather = Merriweather({
   variable: "--font-merriweather",
   weight: ["300", "400", "700", "900"],
+  subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -86,7 +92,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${merriweather.variable} antialiased bg-secondary text-neutral-800 flex flex-col min-h-screen`}
+        className={`${inter.variable} ${merriweather.variable} ${instrumentSerif.variable} antialiased bg-secondary text-neutral-800 flex flex-col min-h-screen`}
       >
         <script
           type="application/ld+json"
