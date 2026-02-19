@@ -6,7 +6,7 @@ import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import { siteConfig } from "@/lib/site";
 
-const GA_MEASUREMENT_ID = "G-CBZNTDS2H";
+const GA_MEASUREMENT_ID = "G-CBZNTDS2H2";
 
 const inter = Inter({
   variable: "--font-inter",
