@@ -54,3 +54,41 @@ body {
 h1, h2, h3, h4, h5, h6 {
   @apply font-serif font-bold text-neutral-900;
 }
+
+/* Article body — styles HTML rendered from markdown */
+.article-body p {
+  @apply mb-4;
+}
+
+.article-body h2 {
+  @apply text-2xl text-neutral-900 pt-8 mb-4 sm:text-3xl;
+  font-weight: 400;
+}
+
+.article-body ul {
+  @apply list-disc pl-6 mb-4 space-y-2;
+}
+
+.article-body ul li::marker {
+  color: #a3a3a3;
+}
+
+.article-body ol {
+  @apply list-decimal pl-6 mb-4 space-y-2;
+}
+
+.article-body strong {
+  @apply font-semibold text-neutral-900;
+}
+
+.article-body em {
+  @apply italic;
+}
+
+.article-body blockquote {
+  @apply rounded-xl border-l-4 border-orange-300 bg-orange-50/70 px-4 py-3 text-neutral-800 my-6 not-italic;
+}
+
+.article-body blockquote p {
+  @apply mb-0;
+}

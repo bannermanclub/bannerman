@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Inter, Merriweather, Instrument_Serif } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import { siteConfig } from "@/lib/site";
+
+const GA_MEASUREMENT_ID = "G-CBZNTDS2H";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -84,9 +87,29 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="alternate"
+          type="text/plain"
+          href="/llms.txt"
+          title="LLM and AI crawler index"
+        />
+      </head>
       <body
         className={`${inter.variable} ${merriweather.variable} ${instrumentSerif.variable} antialiased bg-secondary text-neutral-800 flex flex-col min-h-screen`}
       >
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

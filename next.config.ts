@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: [
           {
+            key: "Link",
+            value: "</llms.txt>; rel=\"llms-txt\"",
+          },
+          {
             key: "X-Frame-Options",
             value: "SAMEORIGIN",
           },
@@ -22,11 +26,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://www.googletagmanager.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https:",
-              "connect-src 'self' https://calendly.com https://*.calendly.com",
+              "connect-src 'self' https://calendly.com https://*.calendly.com https://www.google-analytics.com https://www.googletagmanager.com",
               "frame-src https://calendly.com",
               "frame-ancestors 'self'",
               "base-uri 'self'",

@@ -54,10 +54,18 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href={siteConfig.links.blog}
+                  className="text-neutral-600 hover:text-primary"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
                   href={siteConfig.links.whyNewsletter}
                   className="text-neutral-600 hover:text-primary"
                 >
-                  Why newsletter?!
+                  Why newsletter?
                 </Link>
               </li>
               <li>

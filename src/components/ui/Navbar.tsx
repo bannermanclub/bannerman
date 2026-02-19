@@ -35,7 +35,7 @@ export function Navbar() {
             href={siteConfig.links.whyNewsletter}
             className="text-neutral-600 hover:text-primary font-medium"
           >
-            Newsletter? Why!
+            Why Newsletter
           </Link>
           <Link
             href={siteConfig.links.about}

@@ -7,6 +7,7 @@ export const siteConfig = {
   email: "hello@flagbearer.club",
   links: {
     about: "/about",
+    blog: "/blog",
     whyNewsletter: "/why-do-brands-need-a-newsletter",
     contact: "/contact",
     privacy: "/privacy",
