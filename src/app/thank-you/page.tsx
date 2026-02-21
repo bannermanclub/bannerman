@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-
 export default function ThankYouPage() {
   return (
     <div className="container-custom py-16 md:py-24">

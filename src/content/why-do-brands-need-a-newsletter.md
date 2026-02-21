@@ -1,5 +1,5 @@
 ---
-title: "Your Content Isn't Bad. It's Just Hard to Feel."
+title: "Content Creation Is Hard. Making it Sell is Harder."
 subtitle: "A case for creating content people remember, trust, and act on."
 description: "Why brands need a differentiated, insight-led newsletter to stand out in an AI-saturated content market. A case for clarity and conviction over volume."
 author: "HSM"

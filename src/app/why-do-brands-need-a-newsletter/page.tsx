@@ -1,6 +1,7 @@
 import { siteConfig } from "@/lib/site";
 import { getArticle } from "@/lib/markdown";
 import { createPageMetadata } from "@/lib/metadata";
+import { ReadyToTalkCta } from "@/components/ui/ReadyToTalkCta";
 
 export const metadata = createPageMetadata({
   title: "Why Your Brand Needs a Newsletter",
@@ -88,6 +89,8 @@ export default function WhyDoBrandsNeedANewsletterPage() {
           className="article-body text-[1.04rem] leading-8 text-neutral-700 sm:text-[1.08rem]"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+
+        <ReadyToTalkCta />
       </section>
     </div>
   );

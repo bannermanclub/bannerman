@@ -38,10 +38,6 @@
     @apply bg-accent text-accent-foreground hover:bg-yellow-500 focus:ring-yellow-500;
   }
 
-  .badge-soft {
-    @apply inline-flex items-center rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white;
-  }
-
   .pill-outline {
     @apply inline-flex items-center rounded-full border border-neutral-800/60 bg-neutral-900/60 px-3 py-1 text-xs font-medium text-neutral-300;
   }
@@ -91,4 +87,26 @@ h1, h2, h3, h4, h5, h6 {
 
 .article-body blockquote p {
   @apply mb-0;
+}
+
+/* Hero rotating phrase — flip-in animation */
+@keyframes hero-flip {
+  from {
+    opacity: 0;
+    transform: rotateX(-85deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+
+.animate-hero-flip {
+  animation: hero-flip 0.55s ease-out forwards;
+  transform-origin: top;
+}
+
+/* CTA block: override global h2 color so heading stays yellow on dark background */
+.ready-to-talk-cta h2 {
+  color: #fef08a; /* yellow-200 */
 }
