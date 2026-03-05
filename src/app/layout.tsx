@@ -74,7 +74,12 @@ export default function RootLayout({
     name: siteConfig.name,
     url: siteConfig.url,
     email: siteConfig.email,
-    sameAs: [siteConfig.url],
+    sameAs: [
+      siteConfig.url,
+      "https://linkedin.com/company/flagbearerclub",
+      "https://x.com/flagbearerclub",
+      "https://flagbearerclub.substack.com",
+    ],
   };
 
   const websiteJsonLd = {
