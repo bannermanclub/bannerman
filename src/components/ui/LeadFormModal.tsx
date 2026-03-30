@@ -6,28 +6,20 @@ import type { ReactNode, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "./Button";
 import { Input } from "./Input";
-import { AlertCircle, CheckCircle2, Loader2, X } from "lucide-react";
+import { AlertCircle, Loader2, X } from "lucide-react";
 
 type LeadFormState = {
-  name: string;
   email: string;
-  company: string;
-  website: string;
-  fundingStatus: string;
-  profitable: string;
-  mrrUsd: string;
+  newsletterRun: string;
+  newsletterUrl: string;
 };
 
 type LeadFormErrors = Partial<Record<keyof LeadFormState, string>>;
 
 const initialState: LeadFormState = {
-  name: "",
   email: "",
-  company: "",
-  website: "",
-  fundingStatus: "",
-  profitable: "",
-  mrrUsd: "",
+  newsletterRun: "",
+  newsletterUrl: "",
 };
 
 interface LeadFormModalProps {
@@ -54,10 +46,6 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
   const validate = (): boolean => {
     const nextErrors: LeadFormErrors = {};
 
-    if (!form.name.trim()) {
-      nextErrors.name = "Name is required.";
-    }
-
     if (!form.email.trim()) {
       nextErrors.email = "Email is required.";
     } else {
@@ -67,26 +55,24 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
       }
     }
 
-    if (!form.company.trim()) {
-      nextErrors.company = "Company is required.";
+    if (!form.newsletterRun) {
+      nextErrors.newsletterRun =
+        "Please select whether you currently run a newsletter (or have in the past).";
     }
 
-    if (!form.website.trim()) {
-      nextErrors.website = "Website is required.";
-    } else {
-      try {
-        new URL(form.website.trim().startsWith("http") ? form.website.trim() : `https://${form.website.trim()}`);
-      } catch {
-        nextErrors.website = "Enter a valid URL (e.g. https://yourcompany.com).";
+    if (form.newsletterRun === "Yes") {
+      if (!form.newsletterUrl.trim()) {
+        nextErrors.newsletterUrl = "Please share your newsletter URL.";
+      } else {
+        try {
+          const candidate = form.newsletterUrl.trim().startsWith("http")
+            ? form.newsletterUrl.trim()
+            : `https://${form.newsletterUrl.trim()}`;
+          new URL(candidate);
+        } catch {
+          nextErrors.newsletterUrl = "Enter a valid URL (e.g. https://yournewsletter.com).";
+        }
       }
-    }
-
-    if (!form.fundingStatus) {
-      nextErrors.fundingStatus = "Select a funding status.";
-    }
-
-    if (!form.profitable) {
-      nextErrors.profitable = "Select whether you are profitable.";
     }
 
     setErrors(nextErrors);
@@ -272,16 +258,6 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
 
               <div className="space-y-6">
                 <Input
-                  label="Name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  placeholder="Elon Musk"
-                  value={form.name}
-                  onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
-                  error={errors.name}
-                />
-                <Input
                   label="Email"
                   name="email"
                   type="email"
@@ -291,97 +267,67 @@ export function LeadFormModal({ children }: LeadFormModalProps) {
                   onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
                   error={errors.email}
                 />
-                <Input
-                  label="Company"
-                  name="company"
-                  type="text"
-                  autoComplete="organization"
-                  placeholder="SpaceX"
-                  value={form.company}
-                  onChange={(e) => setForm((prev) => ({ ...prev, company: e.target.value }))}
-                  error={errors.company}
-                />
-                <Input
-                  label="Website"
-                  name="website"
-                  type="text"
-                  autoComplete="url"
-                  placeholder="https://spacex.com"
-                  value={form.website}
-                  onChange={(e) => setForm((prev) => ({ ...prev, website: e.target.value }))}
-                  error={errors.website}
-                />
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="lead-fundingStatus" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Funding status
-                    </label>
-                    <select
-                      id="lead-fundingStatus"
-                      name="fundingStatus"
-                      value={form.fundingStatus}
-                      onChange={(e) => setForm((prev) => ({ ...prev, fundingStatus: e.target.value }))}
-                      className="block w-full rounded-md border border-neutral-300 px-4 py-2 text-neutral-900 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white"
-                      aria-invalid={errors.fundingStatus ? true : undefined}
-                      aria-describedby={errors.fundingStatus ? "lead-fundingStatus-error" : undefined}
-                    >
-                      <option value="">Select...</option>
-                      <option value="Pre-product">Pre-product</option>
-                      <option value="Bootstrapped">Bootstrapped</option>
-                      <option value="Pre-seed">Pre-seed</option>
-                      <option value="Seed">Seed</option>
-                      <option value="Series A+">Series A+</option>
-                    </select>
-                    {errors.fundingStatus && (
-                      <p id="lead-fundingStatus-error" className="mt-1 text-sm text-red-600" role="alert">
-                        {errors.fundingStatus}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="lead-profitable" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Profitable
-                    </label>
-                    <select
-                      id="lead-profitable"
-                      name="profitable"
-                      value={form.profitable}
-                      onChange={(e) => setForm((prev) => ({ ...prev, profitable: e.target.value }))}
-                      className="block w-full rounded-md border border-neutral-300 px-4 py-2 text-neutral-900 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white"
-                      aria-invalid={errors.profitable ? true : undefined}
-                      aria-describedby={errors.profitable ? "lead-profitable-error" : undefined}
-                    >
-                      <option value="">Select...</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                      <option value="Not sure">Not sure</option>
-                    </select>
-                    {errors.profitable && (
-                      <p id="lead-profitable-error" className="mt-1 text-sm text-red-600" role="alert">
-                        {errors.profitable}
-                      </p>
-                    )}
-                  </div>
-                </div>
 
                 <div>
-                  <label htmlFor="lead-mrrUsd" className="block text-sm font-medium text-neutral-700 mb-1">
-                    MRR in USD (approx.)
+                  <label
+                    htmlFor="lead-newsletterRun"
+                    className="block text-sm font-medium text-neutral-700 mb-1"
+                  >
+                    Do you currently run a newsletter, or have you run one in the past?
                   </label>
-                  <input
-                    id="lead-mrrUsd"
-                    type="text"
-                    name="mrrUsd"
-                    inputMode="numeric"
-                    autoComplete="off"
-                    placeholder="$25,000"
-                    value={form.mrrUsd}
-                    onChange={(e) => setForm((prev) => ({ ...prev, mrrUsd: e.target.value }))}
-                    className="block w-full rounded-md border border-neutral-300 px-4 py-2 text-neutral-900 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
-                  />
+                  <select
+                    id="lead-newsletterRun"
+                    name="newsletterRun"
+                    value={form.newsletterRun}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setForm((prev) => ({
+                        ...prev,
+                        newsletterRun: value,
+                        newsletterUrl: value === "Yes" ? prev.newsletterUrl : "",
+                      }));
+                      setErrors((prev) => {
+                        const next = { ...prev };
+                        delete next.newsletterRun;
+                        delete next.newsletterUrl;
+                        return next;
+                      });
+                    }}
+                    className="block w-full rounded-md border border-neutral-300 px-4 py-2 text-neutral-900 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white"
+                    aria-invalid={errors.newsletterRun ? true : undefined}
+                    aria-describedby={
+                      errors.newsletterRun ? "lead-newsletterRun-error" : undefined
+                    }
+                  >
+                    <option value="">Select...</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                  {errors.newsletterRun && (
+                    <p
+                      id="lead-newsletterRun-error"
+                      className="mt-1 text-sm text-red-600"
+                      role="alert"
+                    >
+                      {errors.newsletterRun}
+                    </p>
+                  )}
                 </div>
+
+                {form.newsletterRun === "Yes" && (
+                  <Input
+                    label="Newsletter URL"
+                    name="newsletterUrl"
+                    type="text"
+                    autoComplete="off"
+                    placeholder="https://yournewsletter.com"
+                    value={form.newsletterUrl}
+                    onChange={(e) =>
+                      setForm((prev) => ({ ...prev, newsletterUrl: e.target.value }))
+                    }
+                    error={errors.newsletterUrl}
+                  />
+                )}
               </div>
             </div>
 

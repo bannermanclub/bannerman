@@ -10,13 +10,9 @@ if (!SPREADSHEET_ID || !SERVICE_ACCOUNT_EMAIL || !SERVICE_ACCOUNT_KEY) {
 }
 
 export async function appendLeadRow(data: {
-  name: string;
   email: string;
-  company: string;
-  website: string;
-  fundingStatus: string;
-  profitable: string;
-  mrrUsd: string;
+  newsletterRun: string;
+  newsletterUrl: string;
 }) {
   if (!SPREADSHEET_ID || !SERVICE_ACCOUNT_EMAIL || !SERVICE_ACCOUNT_KEY) {
     throw new Error("Google Sheets environment variables are not configured.");
@@ -38,16 +34,7 @@ export async function appendLeadRow(data: {
     valueInputOption: "RAW",
     requestBody: {
       values: [
-        [
-          now,
-          data.name,
-          data.email,
-          data.company,
-          data.website,
-          data.fundingStatus,
-          data.profitable,
-          data.mrrUsd,
-        ],
+        [now, data.email, data.newsletterRun, data.newsletterUrl],
       ],
     },
   });

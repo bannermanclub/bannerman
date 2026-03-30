@@ -4,47 +4,46 @@ export async function POST(request: Request) {
   try {
     const contentType = request.headers.get("content-type") || "";
 
-    let name = "";
     let email = "";
-    let company = "";
-    let website = "";
-    let fundingStatus = "";
-    let profitable = "";
-    let mrrUsd = "";
+    let newsletterRun = "";
+    let newsletterUrl = "";
 
     if (contentType.includes("application/json")) {
       const body = await request.json();
-      name = body.name ?? "";
       email = body.email ?? "";
-      company = body.company ?? "";
-      website = body.website ?? "";
-      fundingStatus = body.fundingStatus ?? "";
-      profitable = body.profitable ?? "";
-      mrrUsd = body.mrrUsd ?? "";
+      newsletterRun = body.newsletterRun ?? "";
+      newsletterUrl = body.newsletterUrl ?? "";
     } else {
       const formData = await request.formData();
-      name = (formData.get("name") as string) ?? "";
       email = (formData.get("email") as string) ?? "";
-      company = (formData.get("company") as string) ?? "";
-      website = (formData.get("website") as string) ?? "";
-      fundingStatus = (formData.get("fundingStatus") as string) ?? "";
-      profitable = (formData.get("profitable") as string) ?? "";
-      mrrUsd = (formData.get("mrrUsd") as string) ?? "";
+      newsletterRun = (formData.get("newsletterRun") as string) ?? "";
+      newsletterUrl = (formData.get("newsletterUrl") as string) ?? "";
     }
 
     // Basic server-side validation to mirror client-side rules
-    if (!name || !email || !company || !website || !fundingStatus || !profitable) {
+    if (!email || !newsletterRun) {
       return new Response("Missing required fields", { status: 400 });
     }
 
+    if (newsletterRun === "Yes") {
+      if (!newsletterUrl.trim()) {
+        return new Response("Missing newsletterUrl", { status: 400 });
+      }
+
+      try {
+        const candidate = newsletterUrl.trim().startsWith("http")
+          ? newsletterUrl.trim()
+          : `https://${newsletterUrl.trim()}`;
+        new URL(candidate);
+      } catch {
+        return new Response("Invalid newsletterUrl", { status: 400 });
+      }
+    }
+
     await appendLeadRow({
-      name,
       email,
-      company,
-      website,
-      fundingStatus,
-      profitable,
-      mrrUsd,
+      newsletterRun,
+      newsletterUrl: newsletterRun === "Yes" ? newsletterUrl : "",
     });
 
     // JSON-friendly response for client-side form submissions
