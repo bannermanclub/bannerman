@@ -5,27 +5,33 @@ export async function POST(request: Request) {
     const contentType = request.headers.get("content-type") || "";
 
     let email = "";
-    let newsletterRun = "";
-    let newsletterUrl = "";
+    let newsletterRunRaw = "";
+    let newsletterUrlRaw = "";
 
     if (contentType.includes("application/json")) {
       const body = await request.json();
       email = body.email ?? "";
-      newsletterRun = body.newsletterRun ?? "";
-      newsletterUrl = body.newsletterUrl ?? "";
+      newsletterRunRaw = body.newsletterRun ?? "";
+      newsletterUrlRaw = body.newsletterUrl ?? "";
     } else {
       const formData = await request.formData();
       email = (formData.get("email") as string) ?? "";
-      newsletterRun = (formData.get("newsletterRun") as string) ?? "";
-      newsletterUrl = (formData.get("newsletterUrl") as string) ?? "";
+      newsletterRunRaw = (formData.get("newsletterRun") as string) ?? "";
+      newsletterUrlRaw = (formData.get("newsletterUrl") as string) ?? "";
     }
 
+    const newsletterRunValue = String(newsletterRunRaw).trim().toLowerCase();
+    const hasNewsletter = ["yes", "y", "true", "1"].includes(newsletterRunValue);
+    const noNewsletter = ["no", "n", "false", "0"].includes(newsletterRunValue);
+    const newsletterRun = hasNewsletter ? "Yes" : "No";
+    const newsletterUrl = String(newsletterUrlRaw).trim();
+
     // Basic server-side validation to mirror client-side rules
-    if (!email || !newsletterRun) {
+    if (!email || (!hasNewsletter && !noNewsletter)) {
       return new Response("Missing required fields", { status: 400 });
     }
 
-    if (newsletterRun === "Yes") {
+    if (hasNewsletter) {
       if (!newsletterUrl.trim()) {
         return new Response("Missing newsletterUrl", { status: 400 });
       }
@@ -43,7 +49,7 @@ export async function POST(request: Request) {
     await appendLeadRow({
       email,
       newsletterRun,
-      newsletterUrl: newsletterRun === "Yes" ? newsletterUrl : "",
+      newsletterUrl: hasNewsletter ? newsletterUrl : "",
     });
 
     // JSON-friendly response for client-side form submissions
